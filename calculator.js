@@ -1,21 +1,26 @@
+const MATH_ERROR = 'Math Error';
+
 let calculator = {
-    display: 0,
+    result: 0,
     value: 0,
-    operator: '+',
+    operator: '=',
 }
 
-function add( first, second ) {
-    return first + second;
-}
+const functionObject = {
+    '+' : (a, b) => a+b,
+    '-' : (a, b) => a-b,
+    '*' : (a, b) => a*b,
+    '/' : (a, b) => {
+                    if(b === 0) {
+                        return MATH_ERROR;
+                    }
+                    return a/b;
+                }
+};
 
-function subtract( first, second ) {
-    return first - second;
-}
-
-function multiply( first, second ) {
-    return first * second;
-}
-
-function divide ( first, second ) {
-    return first / second;
+function operate(a, b, operation) {
+    let resultFunction = functionObject[operation];
+    if(resultFunction) {
+        return resultFunction(a,b);
+    }
 }
