@@ -1,9 +1,11 @@
 const MATH_ERROR = 'Math Error';
 
-let calculator = {
-    result: 0,
-    value: 0,
-    operator: '=',
+const calculator = {}
+
+function initializeCalculator () {
+    calculator.result = 0;
+    calculator.value = 0;
+    calculator.operator = '=';
 }
 
 const functionObject = {
