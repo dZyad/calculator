@@ -9,6 +9,7 @@ initializeCalculator();
 
 numbers.forEach(key => {
     key.addEventListener('click', (event) => {
+        if (isNewOrEqual()) calculator.result = 0;
         if (calculator.value.toString().includes('.')) {
             calculator.value = calculator.value.toString() + event.target.textContent;
         } else {
@@ -34,7 +35,7 @@ operands.forEach(key => {
 
 function equalKey() {
     doOperation();
-    calculator.operator = '';
+    calculator.operator = '=';
 }
 
 function clearKey() {
@@ -46,8 +47,12 @@ function clearKey() {
     }
 }
 
+function isNewOrEqual() {
+    return calculator.operator === '' || calculator.operator === '=';
+}
+
 function mathKey() {
-    if (calculator.operator === '' || calculator.operator === '=') {
+    if (isNewOrEqual()) {
         calculator.operator = event.target.textContent;
         calculator.result === 0 ? calculator.result = calculator.value : calculator.result;
         calculator.value = 0;
