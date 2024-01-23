@@ -29,11 +29,11 @@ body {
 }
 
 button {
-    background: #333;
+    background-color: #222;
     color: #eee;
     font-size: 1.5rem;
     border: none;
-    border-radius: 70%;
+    border-radius: 16px;
     cursor: pointer;
     height: 75px;
     width: 75px;
@@ -41,5 +41,18 @@ button {
 }
 
 button:active {
-    filter: brightness(120%);
+    filter: brightness(125%);
+    color: yellow;
+}
+
+.operand {
+    background-color: #222;
+}
+
+.number {
+    background: #333;
+}
+
+.zero {
+    width: 155px;
 }
