@@ -106,6 +106,6 @@ const functionObject = {
 function operate(a, b, operation) {
     let resultFunction = functionObject[operation];
     if(resultFunction) {
-        return resultFunction(a,b);
+        return resultFunction(+a,+b);
     }
 }
