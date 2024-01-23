@@ -70,7 +70,12 @@ function signKey() {
 }
 
 function updateDisplay(value) {
-    display.textContent = `${value}`;
+    if (value == MATH_ERROR) initializeCalculator();
+    displayValue = value.toString();
+    if (displayValue.length > 9) {
+        displayValue = displayValue.slice(0, 10);
+    }
+    display.textContent = `${displayValue}`;
 }
 
 /** Math Logic Section */
