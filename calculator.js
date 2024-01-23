@@ -47,9 +47,9 @@ function clearKey() {
 }
 
 function mathKey() {
-    if (calculator.operator.length === 0) {
+    if (calculator.operator === '' || calculator.operator === '=') {
         calculator.operator = event.target.textContent;
-        calculator.result = calculator.value;
+        calculator.result === 0 ? calculator.result = calculator.value : calculator.result;
         calculator.value = 0;
     } else {
         doOperation();
@@ -87,14 +87,14 @@ function initializeCalculator () {
 }
 
 function doOperation() {
-    if (calculator.operator !== '') {
-        calculator.result = operate(calculator.result, calculator.value, calculator.operator);
+    if (calculator.operator !== '' && calculator.operator !== '=') {
+      calculator.result = operate(calculator.result, calculator.value, calculator.operator);
     } else {
-        calculator.result = calculator.value;
+      calculator.result = calculator.value;
     }
     calculator.value = 0;
     updateDisplay(calculator.result);
-}
+  }
 
 const functionObject = {
     '+' : (a, b) => a+b,
