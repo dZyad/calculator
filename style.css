@@ -16,16 +16,17 @@ body {
     background-color: grey;
     padding: 16px;
     width: 350px;
-    border-radius: 5px;
+    border-radius: 12px;
 }
 
 #display {
     background-color: yellowgreen;
     text-align:end;
     font-size: 3rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding-right: 10px;
-    border: none;
+    border: solid black 2px;
+    border-radius: 12px;
 }
 
 button {
