@@ -81,11 +81,17 @@ function signKey() {
 
 function updateDisplay(value) {
     if (value == MATH_ERROR) initializeCalculator();
-    displayValue = value.toString();
-    if (displayValue.length > 9) {
-        displayValue = displayValue.slice(0, 10);
+    
+    let displayValue;
+    if (Math.abs(value) >= 1e9 || (Math.abs(value) > 0 && Math.abs(value) < 1e-9)) {
+        displayValue = value.toExponential(6);
+    } else {
+        displayValue = value.toString();
+        if (displayValue.length > 9) {
+            displayValue = displayValue.slice(0, 10);
+        }
     }
-    display.textContent = `${displayValue}`;
+    display.textContent = displayValue;
 }
 
 /** Math Logic Section */
