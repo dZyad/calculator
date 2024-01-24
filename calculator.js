@@ -70,13 +70,8 @@ function dotKey() {
 }
 
 function signKey() {
-    if(calculator.operator === '=' && calculator.value === 0) {
-        calculator.result *= -1;
-        updateDisplay(calculator.result);    
-    } else {
-        calculator.value *= -1;
-        updateDisplay(calculator.value);
-    }
+    calculator.value *= -1;
+    updateDisplay(calculator.value);
 }
 
 function updateDisplay(value) {
