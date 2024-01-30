@@ -9,7 +9,9 @@ initializeCalculator();
 
 numbers.forEach(key => {
     key.addEventListener('click', (event) => {
-        if (isNewOrEqual()) calculator.result = 0;
+        if (isNewOrEqual()) {
+            calculator.result = 0;
+        }
         if (calculator.value.toString().includes('.')) {
             calculator.value = calculator.value.toString() + event.target.textContent;
         } else {
@@ -34,7 +36,13 @@ operands.forEach(key => {
 })
 
 function equalKey() {
-    doOperation();
+    if (!isNewOrEqual()) {
+        doOperation();º
+        calculator.operator = event.target.textContent;
+    } else if (calculator.operator !== '') {
+        calculator.value = calculator.result;
+        doOperation();
+    }
     calculator.operator = '=';
 }
 
@@ -80,7 +88,9 @@ function signKey() {
 }
 
 function updateDisplay(value) {
-    if (value == MATH_ERROR) initializeCalculator();
+    if (value == MATH_ERROR) {
+        initializeCalculator()
+    }
     
     let displayValue;
     if (Math.abs(value) >= 1e9 || (Math.abs(value) > 0 && Math.abs(value) < 1e-9)) {
